@@ -1,12 +1,12 @@
 --- a/src/logger.cc
 +++ b/src/logger.cc
-@@ -83,7 +83,8 @@ std::string logger::format(const std::string& fmt, ...)
- std::string logger::err()
- {
-     char buf[2048];
+@@ -89,7 +89,8 @@ std::string logger::err()
+         return "Unknown error";
+     return buf;
+ #else
 -    return strerror_r(errno, buf, sizeof(buf));
 +    //return strerror_r(errno, buf, sizeof(buf));
 +    return "errno: "+errno;
+ #endif
  }
  
- logger logger::error()
